@@ -19,7 +19,9 @@ class CrazyAnimation extends StatelessWidget {
               child:Stack(
                 alignment: Alignment.center,
                 children: [
-                  Positioned(
+                  AnimatedPositioned(
+                    duration: const Duration(milliseconds: 355),
+                    curve: Curves.easeOut,
                     top:expanBtn.value?110: 0,
                     left:expanBtn.value?190: 0,
                     child: GestureDetector(
@@ -125,7 +127,9 @@ class CrazyAnimation extends StatelessWidget {
                   // )
                   // ),
                   // ),
-                  Positioned(
+                  AnimatedPositioned(
+                    duration: const Duration(milliseconds: 355),
+                    curve: Curves.easeOut,
                     top: expanBtn.value?0:220,
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 355),
@@ -138,7 +142,9 @@ class CrazyAnimation extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
+                  AnimatedPositioned(
+                      duration: const Duration(milliseconds: 355),
+                      curve: Curves.easeOut,
                     bottom:expanBtn.value?35: 240,
                     right:expanBtn.value?0:155 ,
                     child: AnimatedContainer(
@@ -150,8 +156,14 @@ class CrazyAnimation extends StatelessWidget {
                         color: Colors.black,
                         borderRadius: BorderRadius.circular(1000),
                       ),
+                        child: GestureDetector(
+                          onTap: (){
+                            expanBtn.value=false;
+                          },
+                           child:expanBtn.value? Icon(Icons.restart_alt_sharp,color: Colors.white,size: size.width*.04): null)
+                        )
                     ),
-                  ),
+
                 ],
               ),
             ),
