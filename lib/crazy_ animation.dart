@@ -8,6 +8,7 @@ class CrazyAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = Get.size;
     RxBool expanBtn  = false.obs;
+    // var x = size.width > size.height? size.width: size.height;
     return Obx(()=>Scaffold(
       body: SafeArea(
         child: Padding(
@@ -22,8 +23,9 @@ class CrazyAnimation extends StatelessWidget {
                   AnimatedPositioned(
                     duration: const Duration(milliseconds: 355),
                     curve: Curves.easeOut,
-                    top:expanBtn.value?110: 0,
-                    left:expanBtn.value?190: 0,
+                    // top:expanBtn.value?size.width > size.height?size.width*.21+17 :size.height*.21+17:size.width > size.height?0:0,
+                    top:expanBtn.value?size.width*.21+17 : 0,
+                    left:expanBtn.value?size.width*.5-51: 0,
                     child: GestureDetector(
                       onTap: (){
                         expanBtn.value = true;
@@ -135,7 +137,7 @@ class CrazyAnimation extends StatelessWidget {
                   AnimatedPositioned(
                     duration: const Duration(milliseconds: 355),
                     curve: Curves.easeOut,
-                    top: expanBtn.value?0:220,
+                    top: expanBtn.value?0:size.height*.5-size.width*.38*.5,
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 355),
                       curve: Curves.easeOut,
@@ -150,8 +152,8 @@ class CrazyAnimation extends StatelessWidget {
                   AnimatedPositioned(
                       duration: const Duration(milliseconds: 355),
                       curve: Curves.easeOut,
-                      bottom:expanBtn.value?35: 240,
-                      right:expanBtn.value?0:155 ,
+                      bottom:expanBtn.value?35: size.height*.5-size.width*.31*.5,
+                      right:expanBtn.value?0:size.width*.5-size.width*.31*.5-17,
                       child: AnimatedContainer(
                           duration: const Duration(milliseconds: 355),
                           curve: Curves.easeOut,
