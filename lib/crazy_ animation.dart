@@ -23,9 +23,9 @@ class CrazyAnimation extends StatelessWidget {
                   AnimatedPositioned(
                     duration: const Duration(milliseconds: 355),
                     curve: Curves.easeOut,
-                    // top:expanBtn.value?size.width > size.height?size.width*.21+17 :size.height*.21+17:size.width > size.height?0:0,
-                    top:expanBtn.value?size.width*.21+17 : 0,
-                    left:expanBtn.value?size.width*.5-51: 0,
+                    top:expanBtn.value?size.width > size.height?size.height*.21+17 :size.width*.21+17:size.width > size.height?0:0,
+                    // top:expanBtn.value?size.width*.21+17 : 0,
+                    left:expanBtn.value?size.width > size.height?size.height*.5-51: size.width*.5-51:size.width > size.height?0:0,
                     child: GestureDetector(
                       onTap: (){
                         expanBtn.value = true;
@@ -33,7 +33,7 @@ class CrazyAnimation extends StatelessWidget {
                       child: Text(expanBtn.value?"RIPPLE":"Expan",
                         style: TextStyle(
                           fontWeight: FontWeight.w900,
-                          fontSize: size.width*.045,
+                          fontSize:size.width > size.height?size.height*.045: size.width*.045,
                         ),
                       ),
                     ),
@@ -41,8 +41,10 @@ class CrazyAnimation extends StatelessWidget {
                   AnimatedContainer(
                     duration: const Duration(milliseconds: 355),
                     curve: Curves.easeOut,
-                    width:expanBtn.value? size.width: size.width*.45,
-                    height:expanBtn.value? size.width*.6: size.width*.45,
+                    // width:expanBtn.value? size.width: size.width*.45,
+                    width:expanBtn.value?size.width > size.height?size.width: size.width :size.width > size.height?size.height*.45: size.width*.45,
+                    // height:expanBtn.value? size.width*.6: size.width*.45,
+                    height:expanBtn.value?size.width > size.height?size.height*0.6: size.width*.6:size.width > size.height?size.height*.45: size.width*.45,
                     decoration: BoxDecoration(
                       color: Colors.grey,
                       borderRadius:expanBtn.value?BorderRadius.circular(55): BorderRadius.circular(1000),
@@ -75,7 +77,7 @@ class CrazyAnimation extends StatelessWidget {
                                       )
                                     ]
                                 ),
-                          
+
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(17.0),
@@ -96,7 +98,7 @@ class CrazyAnimation extends StatelessWidget {
                                         )
                                       ]
                                   ),
-                          
+
                                 ),
                               ),
                               Text.rich(
@@ -116,7 +118,7 @@ class CrazyAnimation extends StatelessWidget {
                                       )
                                     ]
                                 ),
-                          
+
                               ),
                             ],
                           ),
@@ -137,12 +139,15 @@ class CrazyAnimation extends StatelessWidget {
                   AnimatedPositioned(
                     duration: const Duration(milliseconds: 355),
                     curve: Curves.easeOut,
-                    top: expanBtn.value?0:size.height*.5-size.width*.38*.5,
+                    // top: expanBtn.value?0:size.height*.5-size.width*.38*.5,
+                    top:expanBtn.value?size.width > size.height?0:0:size.width > size.height?size.height*.5-size.height*.38*.5: size.height*.5-size.width*.38*.5,
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 355),
                       curve: Curves.easeOut,
-                      width:expanBtn.value?size.width*.21:size.width*.38,
-                      height:expanBtn.value?size.width*.21: size.width*.38,
+                      // width:expanBtn.value?size.width*.21:size.width*.38,
+                      width:expanBtn.value?size.width > size.height?size.height*.21: size.width*.21:size.width > size.height?size.height*.38: size.width*.38,
+                      // height:expanBtn.value?size.width*.21: size.width*.38,
+                      height:expanBtn.value?size.width > size.height?size.height*.21: size.width*.21:size.width > size.height?size.height*.38: size.width*.38,
                       decoration: BoxDecoration(
                         color: Color(0xff3d3b3b),
                         borderRadius: BorderRadius.circular(1000),
@@ -152,13 +157,17 @@ class CrazyAnimation extends StatelessWidget {
                   AnimatedPositioned(
                       duration: const Duration(milliseconds: 355),
                       curve: Curves.easeOut,
-                      bottom:expanBtn.value?35: size.height*.5-size.width*.31*.5,
-                      right:expanBtn.value?0:size.width*.5-size.width*.31*.5-17,
+                      // bottom:expanBtn.value?35: size.height*.5-size.width*.31*.5,
+                      bottom:expanBtn.value?35: size.width > size.height?size.height*.5-size.height*.31*.5:size.height*.5-size.width*.31*.5,
+                      // right:expanBtn.value?0:size.width*.5-size.width*.31*.5-17,
+                      right: expanBtn.value?0:size.width > size.height?size.width*.5-size.height*.31*.5-17:size.width*.5-size.width*.31*.5-17,
                       child: AnimatedContainer(
                           duration: const Duration(milliseconds: 355),
                           curve: Curves.easeOut,
-                          width:expanBtn.value?size.width*.15: size.width*.31,
-                          height:expanBtn.value?size.width*.15: size.width*.31,
+                          // width:expanBtn.value?size.width*.15: size.width*.31,
+                          width:expanBtn.value?size.width > size.height?size.height*.15: size.width*.15:size.width > size.height?size.height*.31: size.width*.31,
+                          // height:expanBtn.value?size.width*.15: size.width*.31,
+                          height:expanBtn.value?size.width > size.height?size.height*.15: size.width*.15:size.width > size.height?size.height*.31: size.width*.31,
                           decoration: BoxDecoration(
                             color: Colors.black,
                             borderRadius: BorderRadius.circular(1000),
